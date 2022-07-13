@@ -25,27 +25,37 @@ body {
   justify-content: center;
   align-items: center;
   height: 56px;
-  background: black;
+  background: #d2efd4;
+}
+
+.header__logo {
+  margin: 0 0 15px 0;
+  font-family: 'Fascinate Inline', cursive;
+  font-weight: bold;
+  font-size: 30px;
 }
 
 .header__link,
 .footer__info {
-  color: @grey;
+  color: coral;
 }
 
 .header__link {
   margin: 0 20px;
   transition: all .2s;
-
-  &:hover,
-  &.active {
-    color: white;
-  }
+  //
+  //&:hover,
+  //&.active {
+  //  color: white;
+  //}
 }
 
 .content-container {
   flex: 1;
   padding: 50px;
+  background-image: url("../images/background.jpg");
+  background-repeat: no-repeat;
+  //background: aqua;
 }
 
 .page-title {
@@ -56,7 +66,7 @@ body {
 }
 
 .button {
-  background: black;
+  background: limegreen;
   color: white;
   outline: none;
   cursor: pointer;

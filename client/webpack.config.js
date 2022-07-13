@@ -1,9 +1,10 @@
-const CleanWebpackPlugin = require('clean-webpack-plugin'),
-    HtmlWebpackPlugin = require('html-webpack-plugin'),
+const HtmlWebpackPlugin = require('html-webpack-plugin'),
     MiniCssExtractPlugin = require('mini-css-extract-plugin'),
-    OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin'),
+  //  OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin'),
+    CssMinimizerPlugin = require("css-minimizer-webpack-plugin"),
     AutoPrefixer = require('autoprefixer'),
-    UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+    CopyWebpackPlugin = require('copy-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
     entry: './scripts/app.js',
@@ -23,7 +24,6 @@ module.exports = {
     resolve: {
         extensions: ['.less', '.hbs', '.js']
     },
-
     module: {
         rules: [
             {
@@ -42,19 +42,10 @@ module.exports = {
                 ]
             },
             {
-                test: /\.less$/,
-                exclude: /node_modules/,
+                test: /\.less$/i,
                 use: [
-                    MiniCssExtractPlugin.loader,
+                    "style-loader",
                     'css-loader',
-                    {
-                        loader: 'postcss-loader',
-                        options: {
-                            plugins: [
-                                AutoPrefixer()
-                            ]
-                        }
-                    },
                     'less-loader'
                 ]
             },
@@ -75,12 +66,16 @@ module.exports = {
 
     optimization: {
         minimizer: [
-            new OptimizeCSSAssetsPlugin(),
-            new UglifyJsPlugin()
+            new CssMinimizerPlugin()
         ]
     },
 
     plugins: [
+        new CopyWebpackPlugin({
+            patterns: [
+                { from: "images", to: "images" }
+            ]
+        }),
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
             template: './index.html',
