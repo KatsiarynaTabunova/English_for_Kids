@@ -57,7 +57,7 @@ body {
 }
 
 .background {
-   &__main {
+  &__main {
     flex: 1;
     background: url("../images/background.jpg") no-repeat fixed;
     background-size: cover;
@@ -73,13 +73,42 @@ body {
     background-size: cover;
 
   }
-  &__game{
-    display: flex;
-    justify-content: center;
-    flex: 1;
-    background: url("../images/background8.png") no-repeat fixed;
-    background-size: cover;
 
+}
+
+.container-game {
+  display: flex;
+  justify-content: center;
+  flex: 1;
+  background: url("../images/background8.png") no-repeat fixed;
+  background-size: cover;
+
+  .game-item {
+    width: 230px;
+    height: 290px;
+    padding: 15px 0;
+    border-radius: 20px;
+    background: blanchedalmond;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__img {
+      padding-bottom: 10px;
+      height: 130px;
+    }
+
+    .sound {
+      margin-top: 15px;
+      color: green;
+      width: 70px;
+    }
+
+    p {
+      font-weight: bold;
+      font-size: 150%;
+      color: brown;
+    }
   }
 }
 
@@ -154,7 +183,8 @@ body {
     color: brown;
     margin-bottom: 10px;
   }
-  a{
+
+  a {
     padding: 10px 20px;
   }
 }
