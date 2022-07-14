@@ -71,22 +71,30 @@ body {
     flex: 1;
     background: url("../images/background2.jpg") no-repeat fixed;
     background-size: cover;
-
   }
-
+  &__game{
+    display: flex;
+    justify-content: center;
+    //align-items: center;
+    flex: 1;
+    background: url("../images/background8.png") no-repeat fixed;
+    background-size: cover;
+  }
 }
 
 .container-game {
   display: flex;
-  justify-content: center;
-  flex: 1;
-  background: url("../images/background8.png") no-repeat fixed;
-  background-size: cover;
+  width: 1350px;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: center;
 
-  .game-item {
+
+    .game-item {
     width: 230px;
     height: 290px;
     padding: 15px 0;
+    flex: 0 0 0 25%;
     border-radius: 20px;
     background: blanchedalmond;
     display: flex;
@@ -95,7 +103,7 @@ body {
 
     &__img {
       padding-bottom: 10px;
-      height: 130px;
+      height: 140px;
     }
 
     .sound {

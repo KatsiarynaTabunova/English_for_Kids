@@ -1,9 +1,7 @@
+<div class="background__game">
 <div class="container-game">
-    <div class="game-item">
-        <img class="game-item__img" src="images/family/sister.jpg">
-        <p>Brother</p>
-        <img class="sound" src="images/play.png">
-    </div>
-
-
+    {{#each gameItems}}
+        {{> game-item gameItem=this}}
+    {{/each}}
+</div>
 </div>

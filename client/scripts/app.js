@@ -21,7 +21,7 @@ const Routes = {
     '/task/:id': Info,
     '/task/:id/edit': Edit,
     '/games': Games,
-    '/family': Game
+    '/game': Game
 };
 
 function router() {

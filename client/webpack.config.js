@@ -73,7 +73,8 @@ module.exports = {
     plugins: [
         new CopyWebpackPlugin({
             patterns: [
-                { from: "images", to: "images" }
+                { from: "images", to: "images" },
+                { from: "sounds", to: "sounds" }
             ]
         }),
         new CleanWebpackPlugin(),
