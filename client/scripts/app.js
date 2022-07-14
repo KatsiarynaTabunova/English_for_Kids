@@ -11,12 +11,17 @@ import Edit from './views/pages/tasks/edit.js';
 
 import About from './views/pages/about.js';
 import Error404 from './views/pages/error404.js';
+import Games from './views/pages/games/games';
+import GameFamily from './views/pages/games/game-family';
+
 
 const Routes = {
     '/': About,
     '/tasks': AddAndList,
     '/task/:id': Info,
-    '/task/:id/edit': Edit
+    '/task/:id/edit': Edit,
+    '/games': Games,
+    '/family': GameFamily
 };
 
 function router() {
