@@ -19,8 +19,7 @@ body {
   min-height: 100vh;
 }
 
-.header-container,
-.footer-container {
+.header-container{
   display: flex;
   justify-content: left;
   align-items: center;
@@ -36,8 +35,7 @@ body {
   font-size: 20px;
 }
 
-.header__link,
-.footer__info {
+.header__link{
   color: brown;
 }
 
@@ -82,6 +80,7 @@ body {
     background-size: cover;
   }
 }
+
 .block-game {
   display: flex;
   flex-direction: column;
@@ -104,6 +103,12 @@ body {
   a {
     padding: 10px 20px;
   }
+}
+
+.instruction {
+  position: absolute;
+  font-size: 20px;
+  //font-weight: bold;
 }
 
 .back,
@@ -129,7 +134,7 @@ body {
     width: 230px;
     height: 290px;
     padding: 15px 0;
-    margin: 10px 0;
+    margin: 20px 0;
     border-radius: 20px;
     background: blanchedalmond;
     display: flex;
@@ -140,16 +145,17 @@ body {
       padding-bottom: 10px;
       height: 150px;
     }
+
     p {
       font-weight: bold;
       color: brown;
     }
 
-    &__englishWord{
+    &__englishWord {
       font-size: 160%;
     }
 
-    &__russianWord{
+    &__russianWord {
       font-size: 110%;
       margin: 7px;
     }
@@ -216,7 +222,6 @@ body {
     font-size: 16px;
   }
 }
-
 
 
 .task-add {
