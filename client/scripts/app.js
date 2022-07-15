@@ -13,6 +13,7 @@ import About from './views/pages/about.js';
 import Error404 from './views/pages/error404.js';
 import Games from './views/pages/games/games';
 import Game from './views/pages/games/game';
+import FirstLevel from './views/pages/levels/level-1';
 
 
 const Routes = {
@@ -21,7 +22,8 @@ const Routes = {
     '/task/:id': Info,
     '/task/:id/edit': Edit,
     '/games': Games,
-    '/game': Game
+    '/game': Game,
+    '/level-1': FirstLevel
 };
 
 function router() {

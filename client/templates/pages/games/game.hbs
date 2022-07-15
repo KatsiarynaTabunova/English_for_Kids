@@ -1,9 +1,9 @@
 <div class="background__game">
-    <button class="back button">Back</button>
+    <a class="back button" href="#/games" title="Click here to return back!">Back</a>
     <div class="container-game">
         {{#each gameItems}}
             {{> game-item gameItem=this}}
         {{/each}}
     </div>
-    <button class="next button">Next</button>
+    <a class="next button" href="#/level-1" title="Click here to play next level!">Next</a>
 </div>
