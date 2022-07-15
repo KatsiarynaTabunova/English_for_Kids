@@ -76,26 +76,39 @@ body {
   &__game {
     display: flex;
     justify-content: center;
-    //align-items: center;
+    align-items: center;
     flex: 1;
     background: url("../images/background8.png") no-repeat fixed;
     background-size: cover;
   }
 }
 
+.back {
+  font-size: 20px;
+  border-radius: 50%;
+  width: 90px;
+  height: 90px;
+}
+
+.next {
+  font-size: 20px;
+  border-radius: 50%;
+  width: 90px;
+  height: 90px;
+}
+
 .container-game {
   display: flex;
-  width: 1350px;
+  width: 1250px;
   flex-flow: row wrap;
   justify-content: space-around;
   align-items: center;
-
 
   .game-item {
     width: 230px;
     height: 290px;
     padding: 15px 0;
-    flex: 0 0 0 25%;
+    margin: 10px 0;
     border-radius: 20px;
     background: blanchedalmond;
     display: flex;

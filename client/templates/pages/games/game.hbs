@@ -1,7 +1,9 @@
 <div class="background__game">
-<div class="container-game">
-    {{#each gameItems}}
-        {{> game-item gameItem=this}}
-    {{/each}}
-</div>
+    <button class="back button">Back</button>
+    <div class="container-game">
+        {{#each gameItems}}
+            {{> game-item gameItem=this}}
+        {{/each}}
+    </div>
+    <button class="next button">Next</button>
 </div>
