@@ -21,7 +21,6 @@ class Game extends Component {
 
         document.addEventListener('click', function(event) {
             if (event.target.classList.contains('sound')) {
-                console.log(event.target.dataset.sound);
                 const audio = new Audio(event.target.dataset.sound);
                 audio.play();
             }
