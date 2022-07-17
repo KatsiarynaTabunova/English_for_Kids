@@ -90,7 +90,6 @@ class GameModel {
         return randIndexArr.map(index => allGameItemsArr[index]);
 
     }
-
-}
+ }
 
 export default GameModel;
