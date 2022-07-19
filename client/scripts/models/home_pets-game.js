@@ -1,21 +1,13 @@
-import FamilyGame from './family-game';
-import HomePetsGame from './home_pets-game';
+import Game from './game';
 
-class GameModel {
-    static getGames() {
-        return [{url: '/images/family/family.jpg', gameName: 'Play "Family"'},
-            {url: '/images/home_pats/home_pats.jpg', gameName: 'Play "Home Pats"'}];
+class HomePetsGame extends Game{
+    constructor() {
+        super();
+        super.id = 2;
+        super.gameName = 'Home Pats';
+        super.url = '/images/home_pats/home_pats.jpg';
     }
-
-    static getMyGames() {
-        return [new FamilyGame(), new HomePetsGame()];
-    }
-
-    static getGameById(id) {
-        return GameModel.getMyGames().find(item => item.id == id);
-    }
-
-    static getGameItems() {
+    getGameItems() {
         return [{
             imageUrl: '/images/family/mother.jpg',
             englishWord: 'Mother',
@@ -78,29 +70,6 @@ class GameModel {
             }
         ];
     }
-
-    static getRandomGameItems() {
-        const allGameItemsArr = GameModel.getGameItems();
-        const randIndexArr = [];
-
-        for (let i = 0; i < 6; i++) {
-            getRandomInt(randIndexArr);
-        }
-
-        function getRandomInt(array) {
-            // eslint-disable-next-line no-constant-condition
-            while (true) {
-                const randomIndex = Math.floor(Math.random() * allGameItemsArr.length);
-                if (array.indexOf(randomIndex) === -1) {
-                    array.push(randomIndex);
-                    return randomIndex;
-                }
-            }
-        }
-
-        return randIndexArr.map(index => allGameItemsArr[index]);
-
-    }
 }
 
-export default GameModel;
+export default HomePetsGame;

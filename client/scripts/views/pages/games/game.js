@@ -2,11 +2,14 @@ import Component from '../../component';
 
 import GameTemplate from '../../../../templates/pages/games/game';
 import GameModel from '../../../models/game-model';
+import {parseCurrentURL} from '../../../helpers/utils';
 
 
 class Game extends Component {
     async render() {
-        const gameItems = GameModel.getGameItems();
+        const urlParts = parseCurrentURL();
+
+        const gameItems = GameModel.getGameById(urlParts.id).getGameItems();
 
         const html = await GameTemplate({gameItems});
 

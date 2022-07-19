@@ -14,16 +14,21 @@ class FirstLevel extends Component {
         const blockImages = document.getElementsByClassName('container-level1__images')[0];
         const blockSound = document.getElementsByClassName('sound')[0];
         const buttonNextSound = document.getElementsByClassName('container-level1__button-switcher')[0];
+        const blockScore = document.getElementsByClassName('container-level1__score')[0];
+        const buttonNewGame = document.getElementsByClassName('container-level1__new-game')[0];
         let gameItems;
         let correctGameItem;
         let isGameActive = true;
         let allImages;
+        let rightAnswers = 0;
+        let wrongAnswers = 0;
 
         showRandomImages();
+        updateScore();
 
         function showRandomImages() {
             gameItems = GameModel.getRandomGameItems();
-            correctGameItem = gameItems[0];
+            correctGameItem = gameItems[Math.floor(Math.random() * gameItems.length)];
             blockImages.innerHTML = RandomImagesTemplate({gameItems});
 
             allImages = Array.from(document.getElementsByClassName('game-item__img'));
@@ -37,11 +42,17 @@ class FirstLevel extends Component {
 
                     if (selectedImage.getAttribute('src') === correctGameItem.imageUrl) {
                         selectedImage.classList.add('green');
+                        ++rightAnswers;
+                        reproduceSoundRightAnswer();
+
                     } else {
                         selectedImage.classList.add('red');
-                        console.log(findCorrectGameItemImage());
                         findCorrectGameItemImage().classList.add('green');
+                        ++wrongAnswers;
+                        reproduceSoundWrongAnswer();
                     }
+
+                    updateScore();
 
                     allImages.forEach(item => {
                         if (!item.classList.contains('green')) {
@@ -55,8 +66,7 @@ class FirstLevel extends Component {
         }
 
         blockSound.addEventListener('click', () => {
-            const audio = new Audio(correctGameItem.sound);
-            audio.play();
+            playSound(correctGameItem.sound);
         });
 
         buttonNextSound.addEventListener('click', () => {
@@ -64,9 +74,35 @@ class FirstLevel extends Component {
             showRandomImages();
         });
 
+        buttonNewGame.addEventListener('click', () => {
+            isGameActive = true;
+            rightAnswers = 0;
+            wrongAnswers = 0;
+            updateScore();
+            showRandomImages();
+
+        });
+
         function findCorrectGameItemImage() {
             return allImages.find(item => item.getAttribute('src') === correctGameItem.imageUrl);
         }
+
+        function updateScore() {
+            blockScore.innerHTML = `Right answers:  ${rightAnswers} Wrong answers:  ${wrongAnswers}`;
+        }
+
+        function reproduceSoundRightAnswer() {
+            playSound('sounds/sound_right_answer.mp3');
+        }
+
+        function reproduceSoundWrongAnswer() {
+            playSound('sounds/sound_wrong_answer.mp3');
+        }
+
+        function playSound(src) {
+            new Audio(src).play();
+        }
+
     }
 }
 

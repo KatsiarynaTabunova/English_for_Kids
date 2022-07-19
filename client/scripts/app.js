@@ -20,7 +20,7 @@ const Routes = {
     '/task/:id': Info,
     '/task/:id/edit': Edit,
     '/games': Games,
-    '/game': Game,
+    '/game/:id': Game,
     '/first-level': FirstLevel
 };
 

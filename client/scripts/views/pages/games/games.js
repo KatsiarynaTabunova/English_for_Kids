@@ -6,7 +6,7 @@ import GameModel from '../../../models/game-model';
 
 class Games extends Component {
     async render() {
-        const games = GameModel.getGames();
+        const games = GameModel.getMyGames();
         const html = await GamesTemplate({games});
         return html;
     }
