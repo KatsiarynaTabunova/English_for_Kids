@@ -1,4 +1,4 @@
-import Component from '../../component';
+import BasePage from '../../component';
 
 import FirstLevelTemplate from '../../../../templates/pages/levels/first-level';
 
@@ -8,7 +8,7 @@ import {parseCurrentURL} from '../../../helpers/utils';
 
 
 
-class FirstLevel extends Component {
+class SecondLevelPage extends BasePage {
     async render() {
         const urlParts = parseCurrentURL();
         const game = GameModel.getGameById(urlParts.id);
@@ -113,4 +113,4 @@ class FirstLevel extends Component {
     }
 }
 
-export default FirstLevel;
+export default SecondLevelPage;

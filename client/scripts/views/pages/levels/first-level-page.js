@@ -5,7 +5,7 @@ import GameModel from '../../../models/game-model';
 import {parseCurrentURL} from '../../../helpers/utils';
 
 
-class Game extends Component {
+class FirstLevelPage extends Component {
     async render() {
         const urlParts = parseCurrentURL();
         const game = GameModel.getGameById(urlParts.id);
@@ -24,4 +24,4 @@ class Game extends Component {
     }
 }
 
-export default Game;
+export default FirstLevelPage;

@@ -8,20 +8,20 @@ import AddAndList from './views/pages/tasks/add-list.js';
 import Info from './views/pages/tasks/info.js';
 import Edit from './views/pages/tasks/edit.js';
 
-import About from './views/pages/about.js';
+import MainPage from './views/pages/mainPage.js';
 import Error404 from './views/pages/error404.js';
-import Games from './views/pages/games/games';
-import Game from './views/pages/games/game';
-import FirstLevel from './views/pages/levels/first-level';
+import GamesPage from './views/pages/games/games-page';
+import FirstLevelPage from './views/pages/levels/first-level-page';
+import SecondLevelPage from './views/pages/levels/second-level-page';
 
 const Routes = {
-    '/': About,
+    '/': MainPage,
     '/tasks': AddAndList,
     '/task/:id': Info,
     '/task/:id/edit': Edit,
-    '/games': Games,
-    '/game/:id': Game,
-    '/first-level/:id': FirstLevel
+    '/games': GamesPage,
+    '/game/:id': FirstLevelPage,
+    '/first-level/:id': SecondLevelPage
 };
 
 function router() {
