@@ -1,13 +1,6 @@
 import '../styles/app';
-
 import {parseCurrentURL} from './helpers/utils.js';
-
 import Header from './views/partials/header.js';
-
-import AddAndList from './views/pages/tasks/add-list.js';
-import Info from './views/pages/tasks/info.js';
-import Edit from './views/pages/tasks/edit.js';
-
 import MainPage from './views/pages/main-page.js';
 import Error404Page from './views/pages/error404-page.js';
 import GamesPage from './views/pages/games/games-page';
@@ -16,9 +9,6 @@ import SecondLevelPage from './views/pages/levels/second-level-page';
 
 const Routes = {
     '/': MainPage,
-    '/tasks': AddAndList,
-    '/task/:id': Info,
-    '/task/:id/edit': Edit,
     '/games': GamesPage,
     '/first-level/:id': FirstLevelPage,
     '/second-level/:id': SecondLevelPage
