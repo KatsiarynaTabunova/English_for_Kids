@@ -2,11 +2,9 @@ import BasePage from '../../component';
 
 import SecondLevelTemplate from '../../../../templates/pages/levels/second-level-template';
 
-import RandomImagesTemplate from '../../../../templates/pages/levels/random-images';
+import RandomImagesTemplate from '../../../../templates/pages/levels/random-images-template';
 import GameModel from '../../../models/game-model';
 import {parseCurrentURL} from '../../../helpers/utils';
-
-
 
 class SecondLevelPage extends BasePage {
     async render() {

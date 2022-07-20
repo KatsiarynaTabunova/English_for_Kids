@@ -3,7 +3,7 @@
     <p class="instruction">Слушай и повторяй. Постарайся запомнить, как звучат и пишутся представленные слова.</p>
     <div class="container-game">
         {{#each gameItems}}
-            {{> game-item gameItem=this}}
+            {{> game-item-template gameItem=this}}
         {{/each}}
     </div>
     <a class="next button" href="#/second-level/{{game.id}}" title="Click here to play next level!">Next</a>

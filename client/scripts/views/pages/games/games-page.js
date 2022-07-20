@@ -1,6 +1,6 @@
 import Component from '../../component';
 
-import GamesTemplate from '../../../../templates/pages/games/games';
+import GamesTemplate from '../../../../templates/pages/games/games-template';
 import GameModel from '../../../models/game-model';
 
 
