@@ -14,11 +14,11 @@ class SecondLevelPage extends BasePage {
     }
 
     afterRender() {
-        const blockImages = document.getElementsByClassName('container-level1__images')[0];
+        const blockImages = document.getElementsByClassName('container-level2__images')[0];
         const blockSound = document.getElementsByClassName('sound')[0];
-        const buttonNextSound = document.getElementsByClassName('container-level1__button-switcher')[0];
-        const blockScore = document.getElementsByClassName('container-level1__score')[0];
-        const buttonNewGame = document.getElementsByClassName('container-level1__new-game')[0];
+        const buttonNextSound = document.getElementsByClassName('container-level2__button-switcher')[0];
+        const blockScore = document.getElementsByClassName('container-level2__score')[0];
+        const buttonNewGame = document.getElementsByClassName('container-level2__new-game')[0];
         let gameItems;
         let correctGameItem;
         let isGameActive = true;

@@ -8,8 +8,8 @@ import AddAndList from './views/pages/tasks/add-list.js';
 import Info from './views/pages/tasks/info.js';
 import Edit from './views/pages/tasks/edit.js';
 
-import MainPage from './views/pages/mainPage.js';
-import Error404 from './views/pages/error404.js';
+import MainPage from './views/pages/main-page.js';
+import Error404Page from './views/pages/error404-page.js';
 import GamesPage from './views/pages/games/games-page';
 import FirstLevelPage from './views/pages/levels/first-level-page';
 import SecondLevelPage from './views/pages/levels/second-level-page';
@@ -32,7 +32,7 @@ function router() {
 
         const urlParts = parseCurrentURL(),
             pagePath = `/${urlParts.page || ''}${urlParts.id ? '/:id' : ''}${urlParts.action ? `/${urlParts.action}` : ''}`,
-            page = Routes[pagePath] ? new Routes[pagePath]() : new Error404();
+            page = Routes[pagePath] ? new Routes[pagePath]() : new Error404Page();
 
         headerContainer.innerHTML = await header.render();
 
