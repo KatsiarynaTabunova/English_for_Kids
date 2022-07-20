@@ -20,8 +20,8 @@ const Routes = {
     '/task/:id': Info,
     '/task/:id/edit': Edit,
     '/games': GamesPage,
-    '/game/:id': FirstLevelPage,
-    '/first-level/:id': SecondLevelPage
+    '/first-level/:id': FirstLevelPage,
+    '/second-level/:id': SecondLevelPage
 };
 
 function router() {

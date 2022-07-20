@@ -1,6 +1,6 @@
 import BasePage from '../../component';
 
-import FirstLevelTemplate from '../../../../templates/pages/levels/first-level';
+import SecondLevelTemplate from '../../../../templates/pages/levels/second-level-template';
 
 import RandomImagesTemplate from '../../../../templates/pages/levels/random-images';
 import GameModel from '../../../models/game-model';
@@ -12,7 +12,7 @@ class SecondLevelPage extends BasePage {
     async render() {
         const urlParts = parseCurrentURL();
         const game = GameModel.getGameById(urlParts.id);
-        return await FirstLevelTemplate({game});
+        return await SecondLevelTemplate({game});
     }
 
     afterRender() {

@@ -1,6 +1,6 @@
 import Component from '../../component';
 
-import GameTemplate from '../../../../templates/pages/games/game';
+import FirstLevelTemplate from '../../../../templates/pages/levels/first-level-template';
 import GameModel from '../../../models/game-model';
 import {parseCurrentURL} from '../../../helpers/utils';
 
@@ -12,7 +12,7 @@ class FirstLevelPage extends Component {
         const gameItems = game.getGameItems();
 
 
-        const html = await GameTemplate({game, gameItems});
+        const html = await FirstLevelTemplate({game, gameItems});
 
         document.addEventListener('click', function(event) {
             if (event.target.classList.contains('sound')) {
