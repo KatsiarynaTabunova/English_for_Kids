@@ -8,10 +8,11 @@ import {parseCurrentURL} from '../../../helpers/utils';
 class Game extends Component {
     async render() {
         const urlParts = parseCurrentURL();
+        const game = GameModel.getGameById(urlParts.id);
+        const gameItems = game.getGameItems();
 
-        const gameItems = GameModel.getGameById(urlParts.id).getGameItems();
 
-        const html = await GameTemplate({gameItems});
+        const html = await GameTemplate({game, gameItems});
 
         document.addEventListener('click', function(event) {
             if (event.target.classList.contains('sound')) {

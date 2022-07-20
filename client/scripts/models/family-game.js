@@ -8,7 +8,6 @@ class FamilyGame extends Game{
         super.url = '/images/family/family.jpg';
     }
     getGameItems() {
-
         return [{
             imageUrl: '/images/family/mother.jpg',
             englishWord: 'Mother',

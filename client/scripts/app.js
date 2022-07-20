@@ -21,7 +21,7 @@ const Routes = {
     '/task/:id/edit': Edit,
     '/games': Games,
     '/game/:id': Game,
-    '/first-level': FirstLevel
+    '/first-level/:id': FirstLevel
 };
 
 function router() {

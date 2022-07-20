@@ -142,8 +142,6 @@ body {
   width: 1250px;
   flex-flow: row wrap;
   justify-content: space-around;
-  //align-content: space-around;
-
 
   .game-item {
     width: 230px;
@@ -159,7 +157,10 @@ body {
     &__img {
       padding-bottom: 10px;
       height: 150px;
-      //border: 5px hidden;
+
+      //&:hover {
+      //  transform: scale(1.4);
+      //}
     }
 
     p {
@@ -262,6 +263,15 @@ body {
     width: 120px;
     height: 40px;
     margin: 10px;
+
+    //&:disabled {
+    //  background: @grey;
+    //  cursor: default;
+    //
+    //  &:hover {
+    //    border-radius: 20px;
+    //  }
+    //}
   }
 
   &__block-counter {

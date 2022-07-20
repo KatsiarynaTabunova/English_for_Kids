@@ -4,10 +4,15 @@ import FirstLevelTemplate from '../../../../templates/pages/levels/first-level';
 
 import RandomImagesTemplate from '../../../../templates/pages/levels/random-images';
 import GameModel from '../../../models/game-model';
+import {parseCurrentURL} from '../../../helpers/utils';
+
+
 
 class FirstLevel extends Component {
     async render() {
-        return await FirstLevelTemplate();
+        const urlParts = parseCurrentURL();
+        const game = GameModel.getGameById(urlParts.id);
+        return await FirstLevelTemplate({game});
     }
 
     afterRender() {
@@ -27,7 +32,9 @@ class FirstLevel extends Component {
         updateScore();
 
         function showRandomImages() {
-            gameItems = GameModel.getRandomGameItems();
+            const urlParts = parseCurrentURL();
+            const game = GameModel.getGameById(urlParts.id);
+            gameItems = game.getRandomGameItems();
             correctGameItem = gameItems[Math.floor(Math.random() * gameItems.length)];
             blockImages.innerHTML = RandomImagesTemplate({gameItems});
 
