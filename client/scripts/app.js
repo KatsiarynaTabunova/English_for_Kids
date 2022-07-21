@@ -6,12 +6,14 @@ import Error404Page from './views/pages/error404-page.js';
 import GamesPage from './views/pages/games/games-page';
 import FirstLevelPage from './views/pages/levels/first-level-page';
 import SecondLevelPage from './views/pages/levels/second-level-page';
+import ThirdLevelPage from './views/pages/levels/third-level-page';
 
 const Routes = {
     '/': MainPage,
     '/games': GamesPage,
     '/first-level/:id': FirstLevelPage,
-    '/second-level/:id': SecondLevelPage
+    '/second-level/:id': SecondLevelPage,
+    '/third-level/:id': ThirdLevelPage
 };
 
 function router() {

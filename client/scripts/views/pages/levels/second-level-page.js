@@ -12,11 +12,11 @@ class SecondLevelPage extends Component {
     }
 
     afterRender() {
-        const blockImages = document.getElementsByClassName('container-level2__images')[0];
+        const blockImages = document.getElementsByClassName('level2__images')[0];
         const blockSound = document.getElementsByClassName('sound')[0];
-        const buttonNextSound = document.getElementsByClassName('container-level2__button-switcher')[0];
-        const blockScore = document.getElementsByClassName('container-level2__score')[0];
-        const buttonNewGame = document.getElementsByClassName('container-level2__new-game')[0];
+        const buttonNextSound = document.getElementsByClassName('level2__button-switcher')[0];
+        const blockScore = document.getElementsByClassName('level2__score')[0];
+        const buttonNewGame = document.getElementsByClassName('level2__new-game')[0];
         let gameItems;
         let correctGameItem;
         let isGameActive = true;
@@ -56,6 +56,7 @@ class SecondLevelPage extends Component {
                     }
 
                     updateScore();
+                    // buttonNextSound.classlist.remove('disable');
 
                     allImages.forEach(item => {
                         if (!item.classList.contains('green')) {
@@ -81,6 +82,7 @@ class SecondLevelPage extends Component {
             isGameActive = true;
             rightAnswers = 0;
             wrongAnswers = 0;
+
             updateScore();
             showRandomImages();
 
@@ -91,7 +93,7 @@ class SecondLevelPage extends Component {
         }
 
         function updateScore() {
-            blockScore.innerHTML = `Right answers:  ${rightAnswers} Wrong answers:  ${wrongAnswers}`;
+            blockScore.innerHTML = `Right answers: <span class="level2__score__right">${rightAnswers}</span> Wrong answers:  <span class="level2__score__wrong">${wrongAnswers}</span>`;
         }
 
         function reproduceSoundRightAnswer() {

@@ -14,9 +14,15 @@
 
 .disable {
   opacity: 0.5;
-  cursor: default;
 }
 
+.sound {
+  width: 90px;
+  margin-top: 20px;
+}
+.sound-image{
+  width: 40px;
+}
 * {
   box-sizing: border-box;
   text-decoration: none;
@@ -43,7 +49,7 @@ body {
 }
 
 .header__logo {
-  margin: 0 400px 0 20px;
+  margin: 0 300px 0 20px;
   font-family: 'Fascinate Inline', cursive !important;
   font-weight: bold;
   font-size: 30px;
@@ -112,6 +118,8 @@ body {
   margin: 10px 0;
   font-size: 20px;
   font-weight: bold;
+  text-align: center;
+  width: 100%;
 }
 
 .block-game {
@@ -170,10 +178,6 @@ body {
     &__img {
       padding-bottom: 10px;
       height: 150px;
-
-      //&:hover {
-      //  transform: scale(1.4);
-      //}
     }
 
     p {
@@ -209,7 +213,7 @@ body {
   background-size: cover;
 }
 
-.container-level2 {
+.level2 {
   display: flex;
   margin: 0 50px;
   padding-bottom: 10px;
@@ -228,11 +232,6 @@ body {
     &:hover {
       transform: scale(1.1);
     }
-  }
-
-  .sound {
-    width: 90px;
-    margin-top: 20px;
   }
 
   &__images {
@@ -265,15 +264,6 @@ body {
     width: 120px;
     height: 40px;
     margin: 10px;
-
-    //&:disabled {
-    //  background: @grey;
-    //  cursor: default;
-    //
-    //  &:hover {
-    //    border-radius: 20px;
-    //  }
-    //}
   }
 
   &__block-counter {
@@ -293,6 +283,13 @@ body {
     background: sandybrown;
     border-radius: 5px;
 
+    &__right {
+      color: green;
+    }
+
+    &__wrong {
+      color: red;
+    }
   }
 
   &__new-game {
@@ -300,8 +297,8 @@ body {
     height: 40px;
     font-size: 16px;
   }
-
 }
+
 
 .page-title {
   margin-bottom: 20px;
@@ -333,6 +330,32 @@ body {
   }
 }
 
+.third-level__container {
+  margin: 10px 20px 0;
+  height: 580px;
+  width: 1200px;
+  border: 1px solid yellow;
+
+  &__field-list {
+    height: 200px;
+    width: 1000px;
+    border: 1px solid red;
+    display: inline;
+
+    &____field {
+      width: 40px;
+
+      &__englishWord {
+
+      }
+
+      &__sound {
+        background: #38ac38;
+      }
+    }
+  }
+}
+
 .about {
   background: ivory;
   border: 10px solid darkgreen;
@@ -356,152 +379,153 @@ body {
   }
 }
 
-
-.task-add {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  &__title,
-  &__description {
-    width: 300px;
-    border: solid black 1px;
-    border-radius: 4px;
-    outline: none;
-  }
-
-  &__title {
-    height: 30px;
-    padding: 0 8px;
-  }
-
-  &__description {
-    height: 60px;
-    padding: 5px 8px;
-    resize: none;
-    margin: 10px 0;
-  }
-
-  &__btn-add {
-    padding: 8px 24px;
-    font-size: 14px;
-  }
-}
-
-.tasks {
-  max-width: 600px;
-  margin: 30px auto 0;
-
-  &__additional {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
-  }
-
-  &__counter {
-    font-weight: bold;
-
-    &-done {
-      color: @green;
-    }
-
-    &-total {
-      color: red;
-    }
-  }
-
-  &__btn-clear {
-    padding: 8px 16px;
-  }
-
-  .task {
-    display: flex;
-    justify-content: space-between;
-    margin: 10px 0;
-    padding: 10px;
-    border: solid black 1px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: all .3s;
-
-    &:hover {
-      background: black;
-      border-color: white;
-
-      & > .task__title {
-        color: white;
-      }
-
-      & > .task__buttons .button {
-        background: white;
-        color: black;
-      }
-    }
-
-    &__title {
-      max-width: 400px;
-      text-overflow: ellipsis;
-      overflow: hidden;
-      white-space: nowrap;
-      padding: 1px 0;
-      transition: all .3s;
-    }
-
-    &__buttons {
-      width: 175px;
-      display: flex;
-      justify-content: flex-end;
-
-      .button {
-        padding: 4px 12px;
-        font-size: 12px;
-        margin: 0 2px;
-      }
-    }
-
-    &_done {
-      background: @green;
-
-      &:hover {
-        background: #156615;
-      }
-    }
-  }
-}
-
-.task-info,
-.task-edit {
-  line-height: 24px;
-
-  &__buttons {
-    margin-top: 10px;
-
-    .button {
-      padding: 6px 14px;
-      font-size: 12px;
-    }
-  }
-}
-
-.task-edit {
-  b {
-    vertical-align: top;
-  }
-
-  &__title,
-  &__description {
-    border: solid black 1px;
-    padding: 1px 3px;
-  }
-
-  &__title {
-    width: 230px;
-  }
-
-  &__description {
-    width: 175px;
-    height: 60px;
-    margin-top: 3px;
-    resize: none;
-  }
-}
+//
+//
+//.task-add {
+//  display: flex;
+//  flex-direction: column;
+//  align-items: center;
+//
+//  &__title,
+//  &__description {
+//    width: 300px;
+//    border: solid black 1px;
+//    border-radius: 4px;
+//    outline: none;
+//  }
+//
+//  &__title {
+//    height: 30px;
+//    padding: 0 8px;
+//  }
+//
+//  &__description {
+//    height: 60px;
+//    padding: 5px 8px;
+//    resize: none;
+//    margin: 10px 0;
+//  }
+//
+//  &__btn-add {
+//    padding: 8px 24px;
+//    font-size: 14px;
+//  }
+//}
+//
+//.tasks {
+//  max-width: 600px;
+//  margin: 30px auto 0;
+//
+//  &__additional {
+//    display: flex;
+//    justify-content: space-between;
+//    margin-bottom: 20px;
+//  }
+//
+//  &__counter {
+//    font-weight: bold;
+//
+//    &-done {
+//      color: @green;
+//    }
+//
+//    &-total {
+//      color: red;
+//    }
+//  }
+//
+//  &__btn-clear {
+//    padding: 8px 16px;
+//  }
+//
+//  .task {
+//    display: flex;
+//    justify-content: space-between;
+//    margin: 10px 0;
+//    padding: 10px;
+//    border: solid black 1px;
+//    border-radius: 4px;
+//    cursor: pointer;
+//    transition: all .3s;
+//
+//    &:hover {
+//      background: black;
+//      border-color: white;
+//
+//      & > .task__title {
+//        color: white;
+//      }
+//
+//      & > .task__buttons .button {
+//        background: white;
+//        color: black;
+//      }
+//    }
+//
+//    &__title {
+//      max-width: 400px;
+//      text-overflow: ellipsis;
+//      overflow: hidden;
+//      white-space: nowrap;
+//      padding: 1px 0;
+//      transition: all .3s;
+//    }
+//
+//    &__buttons {
+//      width: 175px;
+//      display: flex;
+//      justify-content: flex-end;
+//
+//      .button {
+//        padding: 4px 12px;
+//        font-size: 12px;
+//        margin: 0 2px;
+//      }
+//    }
+//
+//    &_done {
+//      background: @green;
+//
+//      &:hover {
+//        background: #156615;
+//      }
+//    }
+//  }
+//}
+//
+//.task-info,
+//.task-edit {
+//  line-height: 24px;
+//
+//  &__buttons {
+//    margin-top: 10px;
+//
+//    .button {
+//      padding: 6px 14px;
+//      font-size: 12px;
+//    }
+//  }
+//}
+//
+//.task-edit {
+//  b {
+//    vertical-align: top;
+//  }
+//
+//  &__title,
+//  &__description {
+//    border: solid black 1px;
+//    padding: 1px 3px;
+//  }
+//
+//  &__title {
+//    width: 230px;
+//  }
+//
+//  &__description {
+//    width: 175px;
+//    height: 60px;
+//    margin-top: 3px;
+//    resize: none;
+//  }
+//}

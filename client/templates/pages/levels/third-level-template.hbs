@@ -1,0 +1,18 @@
+<div class="background-level2">
+    <p class="number-of-levels">Level 3</p>
+    <a class="back button" href="#/second-level/{{game.id}}" title="Click here to return back!">Back</a>
+    <div class="instruction">
+        <p>Прочитай или прослушай слова и найди для каждого из них подходящую картинку.<br>Перетащи картинки на нужное
+            место и нажми "Проверить".</p>
+    </div>
+
+    <div class = third-level__container >
+        <ul class = third-level__field-list>
+        <li>{{#each gameItems}}
+            {{> insertion-field-template gameItem=this}}
+        {{/each}}</li>
+        </ul>
+    </div>
+
+        <a class="next button" href="#/forth-level" title="Click here to play next level!">Next</a>
+</div>
