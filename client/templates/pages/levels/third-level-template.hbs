@@ -6,12 +6,17 @@
             место и нажми "Проверить".</p>
     </div>
 
-    <div class = third-level__container >
-        <ul class = third-level__field-list>
-        <li>{{#each gameItems}}
+    <div class = "third-level__container">
+        <div class = "third-level__list-answers">
+        {{#each gameItems}}
             {{> insertion-field-template gameItem=this}}
-        {{/each}}</li>
-        </ul>
+        {{/each}}
+        </div>
+        <div class = "third-level__list-options">
+            {{#each gameItems}}
+                {{> images-template gameItem=this}}
+            {{/each}}
+        </div>
     </div>
 
         <a class="next button" href="#/forth-level" title="Click here to play next level!">Next</a>

@@ -20,9 +20,7 @@
   width: 90px;
   margin-top: 20px;
 }
-.sound-image{
-  width: 40px;
-}
+
 * {
   box-sizing: border-box;
   text-decoration: none;
@@ -205,6 +203,7 @@ body {
 }
 
 .background-level2 {
+  margin-bottom: 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -330,28 +329,68 @@ body {
   }
 }
 
-.third-level__container {
-  margin: 10px 20px 0;
-  height: 580px;
-  width: 1200px;
-  border: 1px solid yellow;
+.third-level {
+  &__container {
+    margin: 50px 20px 0;
+    height: 580px;
+    width: 1150px;
+    //border: 1px solid yellow;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 
-  &__field-list {
-    height: 200px;
+  &__list-answers {
+    height: 340px;
+    //width: 1200px;
+    //background: papayawhip;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: center;
+
+  }
+
+  &__field {
+    display: flex;
+    justify-content: center;
+    width: 200px;
+    height: 160px;
+    margin: 4px 0;
+    border: 2px solid brown;
+    border-radius: 10px;
+    background: papayawhip;
+
+    &-englishWord {
+      margin: 9px 10px 0 0;
+      font-size: 18px;
+      color: brown;
+    }
+
+    &-sound {
+      width: 30px;
+      height: 30px;
+      margin-top: 3px;
+
+    }
+  }
+
+  &__list-options {
+    height: 280px;
     width: 1000px;
-    border: 1px solid red;
-    display: inline;
+    margin-top: 15px;
+    border: 3px solid brown;
+    border-radius: 10px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
 
-    &____field {
-      width: 40px;
-
-      &__englishWord {
-
-      }
-
-      &__sound {
-        background: #38ac38;
-      }
+    &-image {
+      margin: 10px 20px;
+      justify-content: space-around;
+      height: 110px;
     }
   }
 }
