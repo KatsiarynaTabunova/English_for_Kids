@@ -25,7 +25,6 @@ class ThirdLevelPage extends Component {
         document.onmousedown = function (event) {
             if (event.target.classList.contains('third-level__list-options-image')) {
                 let draggableImage = event.target;
-                console.log(draggableImage.nextSibling.nextSibling);
                 var imageInitState = {
                     parent: draggableImage.parentNode,
                     nextSibling: draggableImage.nextSibling.nextSibling,
@@ -41,20 +40,16 @@ class ThirdLevelPage extends Component {
 
                 document.onmousemove = function (event) {
                     moveImage(event, draggableImage);
-                    console.log('move');
                 };
 
                 document.onmouseup = function () {
-                    console.log('up');
                     document.onmousemove = null;
                     draggableImage.onmouseup = null;
                     const targetParentField = findTargetField(event, draggableImage);
                     if (targetParentField === null) {
-                        console.log('go back');
                         rollback(draggableImage, imageInitState);
 
                     } else {
-                        console.log('goood');
                         const targetField = targetParentField.getElementsByClassName('third-level__field-image')[0];
 
                         targetField.appendChild(draggableImage);
