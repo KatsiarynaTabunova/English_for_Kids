@@ -21,6 +21,11 @@
   margin-top: 20px;
 }
 
+.absolute {
+  position: absolute;
+  border: 1px dashed black;
+}
+
 * {
   box-sizing: border-box;
   text-decoration: none;
@@ -40,10 +45,12 @@ body {
 .header-container {
   display: flex;
   justify-content: left;
+  //flex-direction: row;
   align-items: center;
   height: 50px;
   font-size: 22px;
   background: linear-gradient(90deg, palegreen 0%, mediumseagreen 50%, palegreen 100%);
+
 }
 
 .header__logo {
@@ -67,6 +74,62 @@ body {
     color: white;
   }
 }
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+
+  &__button {
+    padding: 10px;
+  }
+
+  &__dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+  }
+
+  //&__dropdown-content {
+  //  color: black;
+  //  padding: 12px 16px;
+  //  text-decoration: none;
+  //  display: block;
+  //}
+
+  &__link {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+
+    &hover {
+      background-color: #ddd;
+    }
+  }
+}
+
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+//.dropdown:hover .dropdown-content {
+//  display: block;
+//}
+//
+//.dropdown:hover .dropbtn {
+//  background-color: #3e8e41;
+//}
 
 .content-container {
   display: flex;
@@ -112,7 +175,7 @@ body {
 
 .instruction {
   position: absolute;
-  top: 60px;
+  top: 55px;
   margin: 10px 0;
   font-size: 20px;
   font-weight: bold;
@@ -332,7 +395,7 @@ body {
 .third-level {
   &__container {
     margin: 50px 20px 0;
-    height: 580px;
+    height: 560px;
     width: 1150px;
     //border: 1px solid yellow;
     display: flex;
@@ -343,7 +406,6 @@ body {
 
   &__list-answers {
     height: 340px;
-    //width: 1200px;
     //background: papayawhip;
     display: flex;
     flex-flow: row wrap;
@@ -354,32 +416,44 @@ body {
 
   &__field {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     width: 200px;
-    height: 160px;
-    margin: 4px 0;
+    height: 170px;
+    margin: 2px 0;
     border: 2px solid brown;
     border-radius: 10px;
     background: papayawhip;
 
     &-englishWord {
-      margin: 9px 10px 0 0;
+
       font-size: 18px;
       color: brown;
+      background: #d93a25;
+
     }
 
     &-sound {
       width: 30px;
       height: 30px;
-      margin-top: 3px;
+      margin-top: 1px;
+
+    }
+
+    &-image {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      width: 100%;
 
     }
   }
 
   &__list-options {
-    height: 280px;
+    height: 260px;
     width: 1000px;
-    margin-top: 15px;
+    margin-top: 10px;
     border: 3px solid brown;
     border-radius: 10px;
     display: flex;
@@ -388,7 +462,7 @@ body {
     align-items: center;
 
     &-image {
-      margin: 10px 20px;
+      margin: 5px 20px;
       justify-content: space-around;
       height: 110px;
     }
