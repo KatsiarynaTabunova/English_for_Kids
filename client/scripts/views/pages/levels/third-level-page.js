@@ -11,7 +11,7 @@ class ThirdLevelPage extends Component {
         const game = GameModel.getGameById(urlParts.id);
         const gameItems = game.getGameItems();
 
-        document.addEventListener('click', function(event) {
+        document.addEventListener('click', function (event) {
             if (event.target.classList.contains('third-level__field-sound')) {
                 const audio = new Audio(event.target.dataset.sound);
                 audio.play();
@@ -22,49 +22,64 @@ class ThirdLevelPage extends Component {
 
     afterRender() {
 
-        document.onmousedown = function(event) {
-            // let initX;
-            // let initY;
+        document.onmousedown = function (event) {
             if (event.target.classList.contains('third-level__list-options-image')) {
                 let draggableImage = event.target;
+                console.log(draggableImage.nextSibling.nextSibling);
+                var imageInitState = {
+                    parent: draggableImage.parentNode,
+                    nextSibling: draggableImage.nextSibling.nextSibling,
+                    left: draggableImage.left || '',
+                    top: draggableImage.top || '',
+                    zIndex: draggableImage.zIndex || ''
+                };
                 draggableImage.classList.add('absolute');
                 moveImage(event, draggableImage);
-
-                // initX = draggableImage.style.left;
-                // initY = draggableImage.style.top;
 
                 draggableImage.style.zIndex = 1000;
 
 
-                document.onmousemove = function(event) {
+                document.onmousemove = function (event) {
                     moveImage(event, draggableImage);
                     console.log('move');
                 };
 
-                document.onmouseup = function() {
+                document.onmouseup = function () {
                     console.log('up');
                     document.onmousemove = null;
                     draggableImage.onmouseup = null;
                     const targetParentField = findTargetField(event, draggableImage);
-                    // if (targetParentField === null) {
-                    //     console.log('go back');
-                    // } else {
-                    console.log('goood');
-                    const targetField = targetParentField.getElementsByClassName('third-level__field-image')[0];
+                    if (targetParentField === null) {
+                        console.log('go back');
+                        rollback(draggableImage, imageInitState);
 
-                    targetField.appendChild(draggableImage);
-                    draggableImage.classList.remove('absolute');
-                    // }
+                    } else {
+                        console.log('goood');
+                        const targetField = targetParentField.getElementsByClassName('third-level__field-image')[0];
+
+                        targetField.appendChild(draggableImage);
+                        draggableImage.classList.remove('absolute');
+                    }
                 };
-                draggableImage.ondragstart = function() {
+                draggableImage.ondragstart = function () {
                     return false;
                 };
+
             }
         };
 
         function moveImage(event, image) {
             image.style.left = event.pageX - image.offsetWidth / 2 + 'px';
             image.style.top = event.pageY - image.offsetHeight / 2 + 'px';
+        }
+
+        function rollback(draggableImage, imageInitState) {
+            console.log(imageInitState);
+            imageInitState.parent.insertBefore(draggableImage, imageInitState.nextSibling);
+            draggableImage.classList.remove('absolute');
+            draggableImage.style.left = imageInitState.left;
+            draggableImage.style.top = imageInitState.top;
+            draggableImage.style.zIndex = imageInitState.zIndex;
         }
 
         function findTargetField(event, image) {
