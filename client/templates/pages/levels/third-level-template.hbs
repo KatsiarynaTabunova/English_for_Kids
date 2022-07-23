@@ -6,18 +6,22 @@
             место и нажми "Проверить".</p>
     </div>
 
-    <div class = "third-level__container">
-        <div class = "third-level__list-answers">
-        {{#each gameItems}}
-            {{> insertion-field-template gameItem=this}}
-        {{/each}}
+    <div class="third-level__container">
+        <div class="third-level__list-answers">
+            {{#each gameItems}}
+                {{> insertion-field-template gameItem=this}}
+            {{/each}}
         </div>
-        <div class = "third-level__list-options">
+        <div class="third-level__list-options">
             {{#each gameItems}}
                 {{> images-template gameItem=this}}
             {{/each}}
         </div>
     </div>
-
-        <a class="next button" href="#/forth-level" title="Click here to play next level!">Next</a>
+    <div class="third-level__check">
+    <button class="third-level__check-button button">CHECK</button>
+        <p class="third-level__check-counter">Правильно: 0/10</p>
+        <p class="third-level__check-mistakes">Ошибки: 0</p>
+    </div>
+    <!--        <a class="next button" href="#/forth-level" title="Click here to play next level!">Next</a>-->
 </div>

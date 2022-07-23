@@ -9,9 +9,10 @@ class ThirdLevelPage extends Component {
     async render() {
         const urlParts = parseCurrentURL();
         const game = GameModel.getGameById(urlParts.id);
-        const gameItems = game.getGameItems();
+        const gameItems = game.
+        getGameItems();
 
-        document.addEventListener('click', function (event) {
+        document.addEventListener('click', function(event) {
             if (event.target.classList.contains('third-level__field-sound')) {
                 const audio = new Audio(event.target.dataset.sound);
                 audio.play();
@@ -21,8 +22,12 @@ class ThirdLevelPage extends Component {
     }
 
     afterRender() {
+        const buttonCheck = document.getElementsByClassName('third-level__check-button')[0];
+        buttonCheck.addEventListener('click', function() {
 
-        document.onmousedown = function (event) {
+        });
+
+        document.onmousedown = function(event) {
             if (event.target.classList.contains('third-level__list-options-image')) {
                 let draggableImage = event.target;
                 var imageInitState = {
@@ -37,12 +42,11 @@ class ThirdLevelPage extends Component {
 
                 draggableImage.style.zIndex = 1000;
 
-
-                document.onmousemove = function (event) {
+                document.onmousemove = function(event) {
                     moveImage(event, draggableImage);
                 };
 
-                document.onmouseup = function () {
+                document.onmouseup = function() {
                     document.onmousemove = null;
                     draggableImage.onmouseup = null;
                     const targetParentField = findTargetField(event, draggableImage);
@@ -56,7 +60,7 @@ class ThirdLevelPage extends Component {
                         draggableImage.classList.remove('absolute');
                     }
                 };
-                draggableImage.ondragstart = function () {
+                draggableImage.ondragstart = function() {
                     return false;
                 };
 
