@@ -6,10 +6,12 @@
 
 .green {
   outline: 5px solid green;
+  outline-offset: -5px;
 }
 
 .red {
   outline: 5px solid red;
+  outline-offset: -5px;
 }
 
 .disable {
@@ -24,6 +26,12 @@
 .absolute {
   position: absolute;
   border: 1px dashed greenyellow;
+}
+.right{
+  color: green;
+}
+.wrong{
+  color: red;
 }
 
 .show {
@@ -401,7 +409,7 @@ body {
 
 .third-level {
   &__container {
-    margin: 50px 0 0 40px;
+    margin: 50px 0 10px 40px;
     height: 560px;
     width: 1150px;
     //border: 1px solid yellow;
@@ -412,7 +420,8 @@ body {
   }
 
   &__list-answers {
-    height: 340px;
+    height: 360px;
+    margin-top: 10px;
     //background: papayawhip;
     display: flex;
     flex-flow: row wrap;
@@ -427,7 +436,7 @@ body {
     align-items: center;
     width: 200px;
     height: 170px;
-    margin: 2px 0;
+    margin: 3px 0;
     border: 2px solid brown;
     border-radius: 10px;
     background: papayawhip;
@@ -450,7 +459,7 @@ body {
       align-items: center;
       width: 30px;
       height: 30px;
-          }
+    }
 
     &-image {
       display: flex;
@@ -499,7 +508,7 @@ body {
       background: brown;
     }
 
-    &-counter {
+    &-score {
       display: flex;
       justify-content: center;
       align-items: center;

@@ -22,8 +22,16 @@ class ThirdLevelPage extends Component {
 
     afterRender() {
         const buttonCheck = document.getElementsByClassName('third-level__check-button')[0];
+        const blockRightAnswer = document.getElementsByClassName('third-level__check-score')[0];
+        const blockMistakes = document.getElementsByClassName('third-level__check-mistakes')[0];
+        let rightAnswers = 0;
+        let mistakes = 0;
+
+        updateScore();
 
         buttonCheck.addEventListener('click', function () {
+            resetScore();
+
             const fieldsArr = document.getElementsByClassName('third-level__field');
 
             for (const field of fieldsArr) {
@@ -35,14 +43,26 @@ class ThirdLevelPage extends Component {
 
                     if (currentImageUrl === rightImageUrl) {
                         field.classList.add('green');
-                        console.log('green');
+                        rightAnswers++;
+                        updateScore();
                     } else {
                         field.classList.add('red');
-                        console.log('red');
+                        mistakes++;
+                        updateScore();
                     }
                 }
             }
         });
+
+        function updateScore() {
+            blockRightAnswer.innerHTML = `Правильно: <span class = "right">${rightAnswers} / 10</span>`;
+            blockMistakes.innerHTML = `Ошибки: <span class = "wrong">${mistakes}</span>`;
+        }
+        function resetScore(){
+            rightAnswers = 0;
+            mistakes = 0;
+            updateScore();
+        }
 
         document.onmousedown = function (event) {
             if (event.target.classList.contains('third-level__list-options-image')) {
@@ -63,7 +83,7 @@ class ThirdLevelPage extends Component {
                     moveImage(event, draggableImage);
                 };
 
-                document.onmouseup = function () {
+                draggableImage.onmouseup = function () {
                     document.onmousemove = null;
                     draggableImage.onmouseup = null;
                     const targetParentField = findTargetField(event, draggableImage);
@@ -90,6 +110,7 @@ class ThirdLevelPage extends Component {
         }
 
         function rollback(draggableImage, imageInitState) {
+            console.log('rollback');
             imageInitState.parent.insertBefore(draggableImage, imageInitState.nextSibling);
             draggableImage.classList.remove('absolute');
             draggableImage.style.left = imageInitState.left;
