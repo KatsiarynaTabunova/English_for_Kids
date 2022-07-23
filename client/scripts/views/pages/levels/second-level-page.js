@@ -12,11 +12,11 @@ class SecondLevelPage extends Component {
     }
 
     afterRender() {
-        const blockImages = document.getElementsByClassName('level2__images')[0];
+        const blockImages = document.getElementsByClassName('second-level__images')[0];
         const blockSound = document.getElementsByClassName('sound')[0];
-        const buttonNextSound = document.getElementsByClassName('level2__button-switcher')[0];
-        const blockScore = document.getElementsByClassName('level2__score')[0];
-        const buttonNewGame = document.getElementsByClassName('level2__new-game')[0];
+        const buttonNextSound = document.getElementsByClassName('second-level__button-switcher')[0];
+        const blockScore = document.getElementsByClassName('second-level__score')[0];
+        const buttonNewGame = document.getElementsByClassName('second-level__new-game')[0];
         let gameItems;
         let correctGameItem;
         let isGameActive = true;
@@ -93,7 +93,7 @@ class SecondLevelPage extends Component {
         }
 
         function updateScore() {
-            blockScore.innerHTML = `Right answers: <span class="level2__score__right">${rightAnswers}</span> Wrong answers:  <span class="level2__score__wrong">${wrongAnswers}</span>`;
+            blockScore.innerHTML = `Right answers: <span class="second-level__score__right">${rightAnswers}</span> Wrong answers:  <span class="level2__score__wrong">${wrongAnswers}</span>`;
         }
 
         function reproduceSoundRightAnswer() {

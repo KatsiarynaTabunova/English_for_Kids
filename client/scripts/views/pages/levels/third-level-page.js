@@ -9,10 +9,9 @@ class ThirdLevelPage extends Component {
     async render() {
         const urlParts = parseCurrentURL();
         const game = GameModel.getGameById(urlParts.id);
-        const gameItems = game.
-        getGameItems();
+        const gameItems = game.getGameItems();
 
-        document.addEventListener('click', function(event) {
+        document.addEventListener('click', function (event) {
             if (event.target.classList.contains('third-level__field-sound')) {
                 const audio = new Audio(event.target.dataset.sound);
                 audio.play();
@@ -23,14 +22,32 @@ class ThirdLevelPage extends Component {
 
     afterRender() {
         const buttonCheck = document.getElementsByClassName('third-level__check-button')[0];
-        buttonCheck.addEventListener('click', function() {
 
+        buttonCheck.addEventListener('click', function () {
+            const fieldsArr = document.getElementsByClassName('third-level__field');
+
+            for (const field of fieldsArr) {
+                const imageFieldArr = field.getElementsByClassName('third-level__list-options-image');
+
+                if (imageFieldArr.length > 0) {
+                    const currentImageUrl = imageFieldArr[0].getAttribute('src');
+                    const rightImageUrl = field.dataset.imageurl;
+
+                    if (currentImageUrl === rightImageUrl) {
+                        field.classList.add('green');
+                        console.log('green');
+                    } else {
+                        field.classList.add('red');
+                        console.log('red');
+                    }
+                }
+            }
         });
 
-        document.onmousedown = function(event) {
+        document.onmousedown = function (event) {
             if (event.target.classList.contains('third-level__list-options-image')) {
                 let draggableImage = event.target;
-                var imageInitState = {
+                const imageInitState = {
                     parent: draggableImage.parentNode,
                     nextSibling: draggableImage.nextSibling.nextSibling,
                     left: draggableImage.left || '',
@@ -42,11 +59,11 @@ class ThirdLevelPage extends Component {
 
                 draggableImage.style.zIndex = 1000;
 
-                document.onmousemove = function(event) {
+                document.onmousemove = function (event) {
                     moveImage(event, draggableImage);
                 };
 
-                document.onmouseup = function() {
+                document.onmouseup = function () {
                     document.onmousemove = null;
                     draggableImage.onmouseup = null;
                     const targetParentField = findTargetField(event, draggableImage);
@@ -60,7 +77,7 @@ class ThirdLevelPage extends Component {
                         draggableImage.classList.remove('absolute');
                     }
                 };
-                draggableImage.ondragstart = function() {
+                draggableImage.ondragstart = function () {
                     return false;
                 };
 
@@ -73,7 +90,6 @@ class ThirdLevelPage extends Component {
         }
 
         function rollback(draggableImage, imageInitState) {
-            console.log(imageInitState);
             imageInitState.parent.insertBefore(draggableImage, imageInitState.nextSibling);
             draggableImage.classList.remove('absolute');
             draggableImage.style.left = imageInitState.left;
