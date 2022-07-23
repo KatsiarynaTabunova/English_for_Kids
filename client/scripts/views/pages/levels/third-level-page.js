@@ -88,8 +88,9 @@ class ThirdLevelPage extends Component {
 
             for (const targetField of targetFields) {
                 if (areRectanglesIntercepted(imageRect, targetField.getBoundingClientRect())) {
-
-                    return targetField;
+                    if (targetField.getElementsByClassName('third-level__list-options-image').length === 0) {
+                        return targetField;
+                    }
                 }
             }
             return null;
