@@ -87,6 +87,7 @@ class ThirdLevelPage extends Component {
             updateScore();
         }
 
+        const answerParentFieldsMap = new Map();
         document.onmousedown = function (event) {
             if (event.target.classList.contains('third-level__list-options-image')) {
                 let draggableImage = event.target;
@@ -110,15 +111,16 @@ class ThirdLevelPage extends Component {
                     document.onmousemove = null;
                     draggableImage.onmouseup = null;
                     const targetParentField = findTargetField(event, draggableImage);
-                    console.log(targetParentField);
+
                     if (targetParentField === null) {
                         rollback(draggableImage, imageInitState);
 
                     } else {
                         const targetField = targetParentField.getElementsByClassName('third-level__field-image')[0];
-
                         targetField.appendChild(draggableImage);
                         draggableImage.classList.remove('absolute');
+
+                        answerParentFieldsMap.set(draggableImage, targetParentField);
                     }
                 };
                 draggableImage.ondragstart = function () {
@@ -134,11 +136,11 @@ class ThirdLevelPage extends Component {
         }
 
         function rollback(draggableImage, imageInitState) {
-            console.log('rollback');
-            console.log(imageInitState);
+
             if (imageInitState.nextSibling !== null) {
                 blockOptions.insertBefore(draggableImage, imageInitState.nextSibling);
             } else {
+                answerParentFieldsMap.get(draggableImage).classList.remove('red', 'green');
                 blockOptions.appendChild(draggableImage);
             }
             draggableImage.classList.remove('absolute');
