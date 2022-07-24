@@ -8,11 +8,11 @@ class Game {
     getGameItems() {
         return [];
     }
-    getRandomGameItems() {
+    getRandomGameItems(count) {
         const allGameItemsArr = this.getGameItems();
         const randIndexArr = [];
 
-        for (let i = 0; i < 6; i++) {
+        for (let i = 0; i < count; i++) {
             getRandomInt(randIndexArr);
         }
 

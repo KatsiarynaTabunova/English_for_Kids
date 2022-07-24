@@ -1,6 +1,8 @@
 import Component from '../../component';
 import ThirdLevelTemplate from '../../../../templates/pages/levels/third-level-template';
 
+import GameItemAnswersTemplate from '../../../../templates/pages/levels/game-item-answers-template';
+import GameItemOptionsTemplate from '../../../../templates/pages/levels/game-item-options-template';
 import GameModel from '../../../models/game-model';
 import {parseCurrentURL} from '../../../helpers/utils';
 
@@ -9,7 +11,9 @@ class ThirdLevelPage extends Component {
     async render() {
         const urlParts = parseCurrentURL();
         const game = GameModel.getGameById(urlParts.id);
-        const gameItems = game.getGameItems();
+        const gameItemAnswers = game.getRandomGameItems(10);
+        const gameItemOptions = game.getRandomGameItems(10);
+
 
         document.addEventListener('click', function (event) {
             if (event.target.classList.contains('third-level__field-sound')) {
@@ -17,17 +21,30 @@ class ThirdLevelPage extends Component {
                 audio.play();
             }
         });
-        return await ThirdLevelTemplate({game, gameItems});
+        return await ThirdLevelTemplate({game, gameItemAnswers, gameItemOptions});
     }
 
     afterRender() {
+        const blockAnswers = document.getElementsByClassName('third-level__list-answers')[0];
+        const blockOptions = document.getElementsByClassName('third-level__list-options')[0];
         const buttonCheck = document.getElementsByClassName('third-level__check-button')[0];
         const blockRightAnswer = document.getElementsByClassName('third-level__check-score')[0];
         const blockMistakes = document.getElementsByClassName('third-level__check-mistakes')[0];
+        const buttonStartAgain = document.getElementsByClassName('third-level__check-button-start')[0];
         let rightAnswers = 0;
         let mistakes = 0;
 
+        showRandom();
         updateScore();
+
+        function showRandom() {
+            const urlParts = parseCurrentURL();
+            const game = GameModel.getGameById(urlParts.id);
+            const gameItemAnswers = game.getRandomGameItems(10);
+            const gameItemOptions = game.getRandomGameItems(10);
+            blockAnswers.innerHTML = GameItemAnswersTemplate({gameItemAnswers});
+            blockOptions.innerHTML = GameItemOptionsTemplate({gameItemOptions});
+        }
 
         buttonCheck.addEventListener('click', function () {
             resetScore();
@@ -54,11 +71,17 @@ class ThirdLevelPage extends Component {
             }
         });
 
+        buttonStartAgain.addEventListener('click', function () {
+            resetScore();
+            showRandom();
+        });
+
         function updateScore() {
             blockRightAnswer.innerHTML = `Правильно: <span class = "right">${rightAnswers} / 10</span>`;
             blockMistakes.innerHTML = `Ошибки: <span class = "wrong">${mistakes}</span>`;
         }
-        function resetScore(){
+
+        function resetScore() {
             rightAnswers = 0;
             mistakes = 0;
             updateScore();
@@ -67,9 +90,9 @@ class ThirdLevelPage extends Component {
         document.onmousedown = function (event) {
             if (event.target.classList.contains('third-level__list-options-image')) {
                 let draggableImage = event.target;
+                const nextSibling = draggableImage.nextSibling !== null ? draggableImage.nextSibling.nextSibling : null;
                 const imageInitState = {
-                    parent: draggableImage.parentNode,
-                    nextSibling: draggableImage.nextSibling.nextSibling,
+                    nextSibling: nextSibling,
                     left: draggableImage.left || '',
                     top: draggableImage.top || '',
                     zIndex: draggableImage.zIndex || ''
@@ -87,6 +110,7 @@ class ThirdLevelPage extends Component {
                     document.onmousemove = null;
                     draggableImage.onmouseup = null;
                     const targetParentField = findTargetField(event, draggableImage);
+                    console.log(targetParentField);
                     if (targetParentField === null) {
                         rollback(draggableImage, imageInitState);
 
@@ -111,11 +135,17 @@ class ThirdLevelPage extends Component {
 
         function rollback(draggableImage, imageInitState) {
             console.log('rollback');
-            imageInitState.parent.insertBefore(draggableImage, imageInitState.nextSibling);
+            console.log(imageInitState);
+            if (imageInitState.nextSibling !== null) {
+                blockOptions.insertBefore(draggableImage, imageInitState.nextSibling);
+            } else {
+                blockOptions.appendChild(draggableImage);
+            }
             draggableImage.classList.remove('absolute');
             draggableImage.style.left = imageInitState.left;
             draggableImage.style.top = imageInitState.top;
             draggableImage.style.zIndex = imageInitState.zIndex;
+
         }
 
         function findTargetField(event, image) {

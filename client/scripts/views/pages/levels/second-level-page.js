@@ -30,7 +30,7 @@ class SecondLevelPage extends Component {
         function showRandomImages() {
             const urlParts = parseCurrentURL();
             const game = GameModel.getGameById(urlParts.id);
-            gameItems = game.getRandomGameItems();
+            gameItems = game.getRandomGameItems(6);
             correctGameItem = gameItems[Math.floor(Math.random() * gameItems.length)];
             blockImages.innerHTML = RandomImagesTemplate({gameItems});
 

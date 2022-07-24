@@ -498,7 +498,7 @@ body {
     flex-direction: column;
     padding: 10px;
     width: 200px;
-    height: 180px;
+    height: 220px;
     border: 3px solid brown;
     border-radius: 10px;
 
@@ -506,26 +506,24 @@ body {
       padding: 10px 40px;
       margin-bottom: 20px;
       background: brown;
+      font-size: 17px;
     }
 
-    &-score {
+    &-score,
+    &-mistakes{
       display: flex;
       justify-content: center;
       align-items: center;
-      border: 1px solid red;
       height: 40px;
       font-size: 17px;
       font-weight: bold;
     }
 
-    &-mistakes {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border: 1px solid red;
-      height: 40px;
+    &-button-start{
+      padding: 10px 40px;
+      margin-top: 20px;
+      background: brown;
       font-size: 17px;
-      font-weight: bold;
     }
   }
 
@@ -535,7 +533,7 @@ body {
   background: ivory;
   border: 10px solid darkgreen;
   position: absolute;
-  padding: 30px 0;
+  padding: 30px 10px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
