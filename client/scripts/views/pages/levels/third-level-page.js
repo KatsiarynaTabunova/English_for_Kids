@@ -123,7 +123,7 @@ class ThirdLevelPage extends Component {
                         answerParentFieldsMap.set(draggableImage, targetParentField);
                     }
                 };
-                draggableImage.ondragstart = function () {
+                draggableImage.ondragstart = function() {
                     return false;
                 };
 
