@@ -16,7 +16,7 @@ class SecondLevelPage extends Component {
         const blockSound = document.getElementsByClassName('sound')[0];
         const buttonNextSound = document.getElementsByClassName('second-level__button-switcher')[0];
         const blockScore = document.getElementsByClassName('second-level__score')[0];
-        const buttonNewGame = document.getElementsByClassName('second-level__new-game')[0];
+        const buttonNewGame = document.getElementsByClassName('second-level__button-start-again')[0];
         let gameItems;
         let correctGameItem;
         let isGameActive = true;
