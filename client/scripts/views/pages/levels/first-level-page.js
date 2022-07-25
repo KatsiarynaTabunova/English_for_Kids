@@ -11,7 +11,6 @@ class FirstLevelPage extends Component {
         const game = GameModel.getGameById(urlParts.id);
         const gameItems = game.getGameItems();
 
-
         const html = await FirstLevelTemplate({game, gameItems});
 
         document.addEventListener('click', function(event) {

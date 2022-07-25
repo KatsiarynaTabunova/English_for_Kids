@@ -75,15 +75,6 @@ body {
   &:hover {
     border-radius: 0;
   }
-
-  //&:disabled {
-  //  background: gray;
-  //  cursor: default;
-  //
-  //  &:hover {
-  //    border-radius: 20px;
-  //  }
-  //}
 }
 
 .background {
@@ -326,14 +317,12 @@ body {
   }
 
   &__list-answers {
-    height: 360px;
-    margin-top: 10px;
-    //background: papayawhip;
     display: flex;
     flex-flow: row wrap;
     justify-content: space-around;
     align-items: center;
-
+    height: 360px;
+    margin-top: 10px;
   }
 
   &__field {
@@ -432,28 +421,29 @@ body {
       font-size: 17px;
     }
   }
-
 }
 
 .about {
-  background: ivory;
-  border: 1px solid brown;
+  background: rgba(253, 243, 229, 0.9);
+  border: 3px solid brown;
+  border-radius: 10px;
   position: absolute;
-  padding: 30px 10px;
+  padding: 20px 15px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 800px;
+  height: 350px;
   text-align: center;
 
   &__info {
-    font-size: 22px;
+    font-size: 20px;
     line-height: 34px;
-    margin-bottom: 25px;
+    margin-bottom: 50px;
   }
 
   &__btn-start {
-    padding: 18px 50px;
+    padding: 50px 20px;
+    border-radius: 80px;
     font-size: 16px;
   }
 }

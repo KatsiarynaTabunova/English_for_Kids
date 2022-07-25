@@ -15,7 +15,7 @@ class ThirdLevelPage extends Component {
         const gameItemOptions = game.getRandomGameItems(10);
 
 
-        document.addEventListener('click', function (event) {
+        document.addEventListener('click', function(event) {
             if (event.target.classList.contains('third-level__field-sound')) {
                 const audio = new Audio(event.target.dataset.sound);
                 audio.play();
@@ -46,7 +46,7 @@ class ThirdLevelPage extends Component {
             blockOptions.innerHTML = GameItemOptionsTemplate({gameItemOptions});
         }
 
-        buttonCheck.addEventListener('click', function () {
+        buttonCheck.addEventListener('click', function() {
             resetScore();
 
             const fieldsArr = document.getElementsByClassName('third-level__field');
@@ -71,7 +71,7 @@ class ThirdLevelPage extends Component {
             }
         });
 
-        buttonStartAgain.addEventListener('click', function () {
+        buttonStartAgain.addEventListener('click', function() {
             resetScore();
             showRandom();
         });
@@ -88,7 +88,7 @@ class ThirdLevelPage extends Component {
         }
 
         const answerParentFieldsMap = new Map();
-        document.onmousedown = function (event) {
+        document.onmousedown = function(event) {
             if (event.target.classList.contains('third-level__list-options-image')) {
                 let draggableImage = event.target;
                 const nextSibling = draggableImage.nextSibling !== null ? draggableImage.nextSibling.nextSibling : null;
@@ -103,11 +103,11 @@ class ThirdLevelPage extends Component {
 
                 draggableImage.style.zIndex = 1000;
 
-                document.onmousemove = function (event) {
+                document.onmousemove = function(event) {
                     moveImage(event, draggableImage);
                 };
 
-                draggableImage.onmouseup = function () {
+                draggableImage.onmouseup = function() {
                     document.onmousemove = null;
                     draggableImage.onmouseup = null;
                     const targetParentField = findTargetField(event, draggableImage);
