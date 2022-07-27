@@ -11,15 +11,16 @@ class FirstLevelPage extends Component {
         const game = await GameModel.getGameById(urlParts.id);
         const gameItems = game.gameItems;
 
-        const html = await FirstLevelTemplate({game, gameItems});
+        return await FirstLevelTemplate({game, gameItems});
+    }
 
+    async afterRender() {
         document.addEventListener('click', function(event) {
             if (event.target.classList.contains('sound')) {
                 const audio = new Audio(event.target.dataset.sound);
                 audio.play();
             }
         });
-        return html;
     }
 }
 

@@ -14,13 +14,6 @@ class ThirdLevelPage extends Component {
         const gameItemAnswers = await GameModel.getRandomGameItems(urlParts.id, 10);
         const gameItemOptions = await GameModel.getRandomGameItems(urlParts.id,10);
 
-
-        document.addEventListener('click', function(event) {
-            if (event.target.classList.contains('third-level__field-sound')) {
-                const audio = new Audio(event.target.dataset.sound);
-                audio.play();
-            }
-        });
         return await ThirdLevelTemplate({game, gameItemAnswers, gameItemOptions});
     }
 
@@ -33,6 +26,13 @@ class ThirdLevelPage extends Component {
         const buttonStartAgain = document.getElementsByClassName('third-level__check-button-start')[0];
         let rightAnswers = 0;
         let mistakes = 0;
+
+        document.addEventListener('click', function(event) {
+            if (event.target.classList.contains('third-level__field-sound')) {
+                const audio = new Audio(event.target.dataset.sound);
+                audio.play();
+            }
+        });
 
         await showRandom();
         updateScore();

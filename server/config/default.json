@@ -1,12 +1,9 @@
 {
   "database": {
-    "tasks": "./database/tasks.json",
     "games": "./database/games.json"
   },
 
   "routes": {
-    "tasks": "./routes/tasks.js",
-    "task": "./routes/task.js",
     "games": "./routes/games.js"
   }
 }

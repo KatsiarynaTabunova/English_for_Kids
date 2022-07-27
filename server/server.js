@@ -15,8 +15,6 @@ app.use((req, res, next) => {
 });
 
 app.use(
-    require(config.get('routes.tasks')),
-    require(config.get('routes.task')),
     require(config.get('routes.games'))
 );
 
