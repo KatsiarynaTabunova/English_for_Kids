@@ -3,19 +3,27 @@ import HomePetsGame from './home_pets-game';
 import NumbersGame from './numbers-game';
 
 class GameModel {
+//     static async getGames() {
+//         const response = await fetch('http://localhost:3000/api/games');
+// console.log(await response.json());
+//         return await response.json();
+//     }
     static getGames() {
-        return [{url: '/images/family/family.jpg', gameName: 'Play "Family"'},
-            {url: '/images/home_pats/home_pats.jpg', gameName: 'Play "Home Pats"'},
-            {url: '/images/numbers/all_numbers.jpg', gameName: 'Play "Numbers"'}];
-    }
-
-    static getMyGames() {
+        // console.log(JSON.stringify([new FamilyGame(), new HomePetsGame(), new NumbersGame()]));
         return [new FamilyGame(), new HomePetsGame(), new NumbersGame()];
     }
 
     static getGameById(id) {
-        return GameModel.getMyGames().find(item => item.id == id);
+        return GameModel.getGames().find(item => item.id == id);
     }
+
+
+    // static async getTask(id) {
+    //     const response = await fetch(`http://localhost:3000/api/task/${id}`);
+    //
+    //     return await response.json();
+    // }
 }
+
 
 export default GameModel;

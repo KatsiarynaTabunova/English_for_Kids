@@ -77,8 +77,8 @@ class ThirdLevelPage extends Component {
         });
 
         function updateScore() {
-            blockRightAnswer.innerHTML = `Правильно: <span class = "right">${rightAnswers} / 10</span>`;
-            blockMistakes.innerHTML = `Ошибки: <span class = "wrong">${mistakes}</span>`;
+            blockRightAnswer.innerHTML = `Правильно: <span class = 'right'>${rightAnswers} / 10</span>`;
+            blockMistakes.innerHTML = `Ошибки: <span class = 'wrong'>${mistakes}</span>`;
         }
 
         function resetScore() {
@@ -131,8 +131,8 @@ class ThirdLevelPage extends Component {
         };
 
         function moveImage(event, image) {
-            image.style.left = event.pageX - image.offsetWidth / 2 + 'px';
-            image.style.top = event.pageY - image.offsetHeight / 2 + 'px';
+            image.style.left = `${event.pageX - image.offsetWidth / 2}px`;
+            image.style.top = `${event.pageY - image.offsetHeight / 2}px`;
         }
 
         function rollback(draggableImage, imageInitState) {

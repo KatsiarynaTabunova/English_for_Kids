@@ -56,7 +56,6 @@ class SecondLevelPage extends Component {
                     }
 
                     updateScore();
-                    // buttonNextSound.classlist.remove('disable');
 
                     allImages.forEach(item => {
                         if (!item.classList.contains('green')) {
@@ -93,7 +92,7 @@ class SecondLevelPage extends Component {
         }
 
         function updateScore() {
-            blockScore.innerHTML = `Right answers: <span class="second-level__score__right">${rightAnswers}</span> Wrong answers:  <span class="second-level__score__wrong">${wrongAnswers}</span>`;
+            blockScore.innerHTML = `Right answers: <span class='second-level__score__right'>${rightAnswers}</span> Wrong answers:  <span class='second-level__score__wrong'>${wrongAnswers}</span>`;
         }
 
         function reproduceSoundRightAnswer() {
