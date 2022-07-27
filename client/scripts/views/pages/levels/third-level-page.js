@@ -10,9 +10,9 @@ import {parseCurrentURL} from '../../../helpers/utils';
 class ThirdLevelPage extends Component {
     async render() {
         const urlParts = parseCurrentURL();
-        const game = GameModel.getGameById(urlParts.id);
-        const gameItemAnswers = game.getRandomGameItems(10);
-        const gameItemOptions = game.getRandomGameItems(10);
+        const game = await GameModel.getGameById(urlParts.id);
+        const gameItemAnswers = await GameModel.getRandomGameItems(urlParts.id, 10);
+        const gameItemOptions = await GameModel.getRandomGameItems(urlParts.id,10);
 
 
         document.addEventListener('click', function(event) {
@@ -24,7 +24,7 @@ class ThirdLevelPage extends Component {
         return await ThirdLevelTemplate({game, gameItemAnswers, gameItemOptions});
     }
 
-    afterRender() {
+    async afterRender() {
         const blockAnswers = document.getElementsByClassName('third-level__list-answers')[0];
         const blockOptions = document.getElementsByClassName('third-level__list-options')[0];
         const buttonCheck = document.getElementsByClassName('third-level__check-button')[0];
@@ -34,14 +34,13 @@ class ThirdLevelPage extends Component {
         let rightAnswers = 0;
         let mistakes = 0;
 
-        showRandom();
+        await showRandom();
         updateScore();
 
-        function showRandom() {
+        async function showRandom() {
             const urlParts = parseCurrentURL();
-            const game = GameModel.getGameById(urlParts.id);
-            const gameItemAnswers = game.getRandomGameItems(10);
-            const gameItemOptions = game.getRandomGameItems(10);
+            const gameItemAnswers = await GameModel.getRandomGameItems(urlParts.id, 10);
+            const gameItemOptions = await GameModel.getRandomGameItems(urlParts.id,10);
             blockAnswers.innerHTML = GameItemAnswersTemplate({gameItemAnswers});
             blockOptions.innerHTML = GameItemOptionsTemplate({gameItemOptions});
         }

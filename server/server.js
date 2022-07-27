@@ -16,7 +16,8 @@ app.use((req, res, next) => {
 
 app.use(
     require(config.get('routes.tasks')),
-    require(config.get('routes.task'))
+    require(config.get('routes.task')),
+    require(config.get('routes.games'))
 );
 
 app.listen(3000, () => console.log('Server has been started...'));

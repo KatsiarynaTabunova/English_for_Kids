@@ -30,7 +30,7 @@ function router() {
 
         const pageData = await page.getData();
         contentContainer.innerHTML = await page.render(pageData);
-        page.afterRender();
+        await page.afterRender();
     })();
 }
 

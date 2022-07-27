@@ -8,8 +8,8 @@ import {parseCurrentURL} from '../../../helpers/utils';
 class FirstLevelPage extends Component {
     async render() {
         const urlParts = parseCurrentURL();
-        const game = GameModel.getGameById(urlParts.id);
-        const gameItems = game.getGameItems();
+        const game = await GameModel.getGameById(urlParts.id);
+        const gameItems = game.gameItems;
 
         const html = await FirstLevelTemplate({game, gameItems});
 

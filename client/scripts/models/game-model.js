@@ -1,28 +1,34 @@
-import FamilyGame from './family-game';
-import HomePetsGame from './home_pets-game';
-import NumbersGame from './numbers-game';
-
 class GameModel {
-//     static async getGames() {
-//         const response = await fetch('http://localhost:3000/api/games');
-// console.log(await response.json());
-//         return await response.json();
-//     }
-    static getGames() {
-        // console.log(JSON.stringify([new FamilyGame(), new HomePetsGame(), new NumbersGame()]));
-        return [new FamilyGame(), new HomePetsGame(), new NumbersGame()];
+
+    static async getGames() {
+        const response = await fetch('http://localhost:3000/api/games');
+        return await response.json();
     }
 
-    static getGameById(id) {
-        return GameModel.getGames().find(item => item.id == id);
+    static async getGameById(id) {
+        return (await GameModel.getGames()).find(item => item.id == id);
     }
 
+    static async getRandomGameItems(id, count) {
+        const allGameItemsArr = (await GameModel.getGameById(id)).gameItems;
+        const randIndexArr = [];
 
-    // static async getTask(id) {
-    //     const response = await fetch(`http://localhost:3000/api/task/${id}`);
-    //
-    //     return await response.json();
-    // }
+        for (let i = 0; i < count; i++) {
+            getRandomInt(randIndexArr);
+        }
+
+        function getRandomInt(array) {
+            // eslint-disable-next-line no-constant-condition
+            while (true) {
+                const randomIndex = Math.floor(Math.random() * allGameItemsArr.length);
+                if (array.indexOf(randomIndex) === -1) {
+                    array.push(randomIndex);
+                    return randomIndex;
+                }
+            }
+        }
+        return randIndexArr.map(index => allGameItemsArr[index]);
+    }
 }
 
 

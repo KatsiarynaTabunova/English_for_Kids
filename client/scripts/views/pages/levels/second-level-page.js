@@ -7,11 +7,11 @@ import {parseCurrentURL} from '../../../helpers/utils';
 class SecondLevelPage extends Component {
     async render() {
         const urlParts = parseCurrentURL();
-        const game = GameModel.getGameById(urlParts.id);
+        const game = await GameModel.getGameById(urlParts.id);
         return await SecondLevelTemplate({game});
     }
 
-    afterRender() {
+    async afterRender() {
         const blockImages = document.getElementsByClassName('second-level__images')[0];
         const blockSound = document.getElementsByClassName('sound')[0];
         const buttonNextSound = document.getElementsByClassName('second-level__button-switcher')[0];
@@ -24,13 +24,12 @@ class SecondLevelPage extends Component {
         let rightAnswers = 0;
         let wrongAnswers = 0;
 
-        showRandomImages();
+        await showRandomImages();
         updateScore();
 
-        function showRandomImages() {
+        async function showRandomImages() {
             const urlParts = parseCurrentURL();
-            const game = GameModel.getGameById(urlParts.id);
-            gameItems = game.getRandomGameItems(6);
+            gameItems = await GameModel.getRandomGameItems(urlParts.id, 6);
             correctGameItem = gameItems[Math.floor(Math.random() * gameItems.length)];
             blockImages.innerHTML = RandomImagesTemplate({gameItems});
 

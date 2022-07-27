@@ -7,7 +7,7 @@ class Component {
 
     async getData() {}
 
-    afterRender() {}
+    async afterRender() {}
 }
 
 export default Component;

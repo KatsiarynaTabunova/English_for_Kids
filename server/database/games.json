@@ -1,0 +1,203 @@
+[
+  {
+    "id": 1,
+    "gameName": "Family",
+    "url": "/images/family/family.jpg",
+    "gameItems": [
+      {
+        "imageUrl": "/images/family/mother.jpg",
+        "englishWord": "Mother",
+        "russianWord": "(Мама)",
+        "sound": "/sounds/family/mother.mp3"
+      },
+      {
+        "imageUrl": "/images/family/father.jpg",
+        "englishWord": "Father",
+        "russianWord": "(Папа)",
+        "sound": "/sounds/family/father.mp3"
+      },
+      {
+        "imageUrl": "/images/family/parents.jpg",
+        "englishWord": "Parents",
+        "russianWord": "(Родители)",
+        "sound": "/sounds/family/parents.mp3"
+      },
+      {
+        "imageUrl": "/images/family/son.jpg",
+        "englishWord": "Son",
+        "russianWord": "(Сын)",
+        "sound": "/sounds/family/son.mp3"
+      },
+      {
+        "imageUrl": "/images/family/daughter.jpg",
+        "englishWord": "Daughter",
+        "russianWord": "(Дочка)",
+        "sound": "/sounds/family/daughter.mp3"
+      },
+      {
+        "imageUrl": "/images/family/granny.jpg",
+        "englishWord": "Grandmother",
+        "russianWord": "(Бабушка)",
+        "sound": "/sounds/family/grandmother.mp3"
+      },
+      {
+        "imageUrl": "/images/family/grandad.jpg",
+        "englishWord": "Grandfather",
+        "russianWord": "(Дедушка)",
+        "sound": "/sounds/family/grandfather.mp3"
+      },
+      {
+        "imageUrl": "/images/family/family.jpg",
+        "englishWord": "Family",
+        "russianWord": "(Семья)",
+        "sound": "/sounds/family/family.mp3"
+      },
+      {
+        "imageUrl": "/images/family/brother.jpg",
+        "englishWord": "Brother",
+        "russianWord": "(Брат)",
+        "sound": "/sounds/family/brother.mp3"
+      },
+      {
+        "imageUrl": "/images/family/sister.jpg",
+        "englishWord": "Sister",
+        "russianWord": "(Сестра)",
+        "sound": "/sounds/family/sister.mp3"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "gameName": "Home Pats",
+    "url": "/images/home_pats/home_pats.jpg",
+    "gameItems": [
+      {
+        "imageUrl": "/images/home_pats/cat.jpg",
+        "englishWord": "Cat",
+        "russianWord": "(Кошка)",
+        "sound": "/sounds/home_pats/cat.mp3"
+      },
+      {
+        "imageUrl": "/images/home_pats/dog.jpg",
+        "englishWord": "Dog",
+        "russianWord": "(Собака)",
+        "sound": "/sounds/home_pats/dog.mp3"
+      },
+      {
+        "imageUrl": "/images/home_pats/cow.jpg",
+        "englishWord": "Cow",
+        "russianWord": "(Корова)",
+        "sound": "/sounds/home_pats/cow.mp3"
+      },
+      {
+        "imageUrl": "/images/home_pats/goose.jpg",
+        "englishWord": "Goose",
+        "russianWord": "(Гусь)",
+        "sound": "/sounds/home_pats/goose.mp3"
+      },
+      {
+        "imageUrl": "/images/home_pats/sheep.jpg",
+        "englishWord": "Sheep",
+        "russianWord": "(Овца)",
+        "sound": "/sounds/home_pats/sheep.mp3"
+      },
+      {
+        "imageUrl": "/images/home_pats/hen.jpg",
+        "englishWord": "Hen",
+        "russianWord": "(Курица)",
+        "sound": "/sounds/home_pats/hen.mp3"
+      },
+      {
+        "imageUrl": "/images/home_pats/pig.jpg",
+        "englishWord": "Pig",
+        "russianWord": "(Свинья)",
+        "sound": "/sounds/home_pats/pig.mp3"
+      },
+      {
+        "imageUrl": "/images/home_pats/horse.jpg",
+        "englishWord": "Horse",
+        "russianWord": "(Лошадь)",
+        "sound": "/sounds/home_pats/horse.mp3"
+      },
+      {
+        "imageUrl": "/images/home_pats/rabbit.jpg",
+        "englishWord": "Rabbit",
+        "russianWord": "(Кролик)",
+        "sound": "/sounds/home_pats/rabbit.mp3"
+      },
+      {
+        "imageUrl": "/images/home_pats/turkey.jpg",
+        "englishWord": "Turkey",
+        "russianWord": "(Индюк)",
+        "sound": "/sounds/home_pats/turkey.mp3"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "gameName": "Numbers",
+    "url": "/images/numbers/all_numbers.jpg",
+    "gameItems": [
+      {
+        "imageUrl": "/images/numbers/1.jpg",
+        "englishWord": "One",
+        "russianWord": "(Один)",
+        "sound": "/sounds/numbers/1.mp3"
+      },
+      {
+        "imageUrl": "/images/numbers/2.jpg",
+        "englishWord": "Two",
+        "russianWord": "(Два)",
+        "sound": "/sounds/numbers/2.mp3"
+      },
+      {
+        "imageUrl": "/images/numbers/3.jpg",
+        "englishWord": "Three",
+        "russianWord": "(Три)",
+        "sound": "/sounds/numbers/3.mp3"
+      },
+      {
+        "imageUrl": "/images/numbers/4.jpg",
+        "englishWord": "Four",
+        "russianWord": "(Четыре)",
+        "sound": "/sounds/numbers/4.mp3"
+      },
+      {
+        "imageUrl": "/images/numbers/5.jpg",
+        "englishWord": "Five",
+        "russianWord": "(Пять)",
+        "sound": "/sounds/numbers/5.mp3"
+      },
+      {
+        "imageUrl": "/images/numbers/6.jpg",
+        "englishWord": "Six",
+        "russianWord": "(Шесть)",
+        "sound": "/sounds/numbers/6.mp3"
+      },
+      {
+        "imageUrl": "/images/numbers/7.jpg",
+        "englishWord": "Seven",
+        "russianWord": "(Семь)",
+        "sound": "/sounds/numbers/7.mp3"
+      },
+      {
+        "imageUrl": "/images/numbers/8.jpg",
+        "englishWord": "Eight",
+        "russianWord": "(Восемь)",
+        "sound": "/sounds/numbers/8.mp3"
+      },
+      {
+        "imageUrl": "/images/numbers/9.jpg",
+        "englishWord": "Nine",
+        "russianWord": "(Девять)",
+        "sound": "/sounds/numbers/9.mp3"
+      },
+      {
+        "imageUrl": "/images/numbers/10.jpg",
+        "englishWord": "Ten",
+        "russianWord": "(Десять)",
+        "sound": "/sounds/numbers/10.mp3"
+      }
+    ]
+  }
+]
