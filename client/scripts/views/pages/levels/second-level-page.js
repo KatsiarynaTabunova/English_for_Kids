@@ -91,7 +91,7 @@ class SecondLevelPage extends Component {
         }
 
         function updateScore() {
-            blockScore.innerHTML = `Right answers: <span class='second-level__score__right'>${rightAnswers}</span> Wrong answers:  <span class='second-level__score__wrong'>${wrongAnswers}</span>`;
+            blockScore.innerHTML = `Right answers: <span class='second-level__score__right'> ${rightAnswers}</span>. Wrong answers:  <span class='second-level__score__wrong'>${wrongAnswers}</span>`;
         }
 
         function reproduceSoundRightAnswer() {

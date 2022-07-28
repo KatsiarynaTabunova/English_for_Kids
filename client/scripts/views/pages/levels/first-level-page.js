@@ -15,7 +15,7 @@ class FirstLevelPage extends Component {
     }
 
     async afterRender() {
-        document.addEventListener('click', function(event) {
+        document.addEventListener('click', (event) => {
             if (event.target.classList.contains('sound')) {
                 const audio = new Audio(event.target.dataset.sound);
                 audio.play();
