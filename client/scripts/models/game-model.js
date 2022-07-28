@@ -6,7 +6,8 @@ class GameModel {
     }
 
     static async getGameById(id) {
-        return (await GameModel.getGames()).find(item => item.id == id);
+        const response = await fetch(`http://localhost:3000/api/game/${id}`);
+        return await response.json();
     }
 
     static async getRandomGameItems(id, count) {
@@ -30,6 +31,5 @@ class GameModel {
         return randIndexArr.map(index => allGameItemsArr[index]);
     }
 }
-
 
 export default GameModel;
