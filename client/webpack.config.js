@@ -1,8 +1,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin'),
     MiniCssExtractPlugin = require('mini-css-extract-plugin'),
   //  OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin'),
-    CssMinimizerPlugin = require("css-minimizer-webpack-plugin"),
-    AutoPrefixer = require('autoprefixer'),
+    CssMinimizerPlugin = require('css-minimizer-webpack-plugin'),
     CopyWebpackPlugin = require('copy-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
@@ -44,7 +43,7 @@ module.exports = {
             {
                 test: /\.less$/i,
                 use: [
-                    "style-loader",
+                    'style-loader',
                     'css-loader',
                     'less-loader'
                 ]
@@ -73,8 +72,8 @@ module.exports = {
     plugins: [
         new CopyWebpackPlugin({
             patterns: [
-                { from: "images", to: "images" },
-                { from: "sounds", to: "sounds" }
+                { from: 'images', to: 'images' },
+                { from: 'sounds', to: 'sounds' }
             ]
         }),
         new CleanWebpackPlugin(),

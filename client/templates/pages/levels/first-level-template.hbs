@@ -3,13 +3,17 @@
         <p class="number-of-levels">Level 1</p>
         <p class="instruction">Слушай и повторяй.<br>Постарайся запомнить, как звучат и пишутся представленные слова.</p>
     </div>
+
     <div class = "level-container">
         <a class="back button" href="#/games" title="Click here to return back!">Back</a>
+
     <div class="first-level">
         {{#each gameItems}}
             {{> game-item-template gameItem=this}}
         {{/each}}
     </div>
+
     <a class="next button" href="#/second-level/{{game.id}}" title="Click here to play next level!">Next</a>
     </div>
+
 </div>

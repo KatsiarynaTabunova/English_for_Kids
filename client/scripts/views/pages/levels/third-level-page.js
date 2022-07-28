@@ -76,7 +76,7 @@ class ThirdLevelPage extends Component {
         });
 
         function updateScore() {
-            blockRightAnswer.innerHTML = `Правильно: <span class = 'right'>${rightAnswers} / 10</span>`;
+            blockRightAnswer.innerHTML = `Правильно: <span class = 'right'>${rightAnswers}/10</span>`;
             blockMistakes.innerHTML = `Ошибки: <span class = 'wrong'>${mistakes}</span>`;
         }
 
@@ -100,7 +100,7 @@ class ThirdLevelPage extends Component {
                 draggableImage.classList.add('absolute');
                 moveImage(event, draggableImage);
 
-                draggableImage.style.zIndex = 1000;
+                draggableImage.style.zIndex = '999';
 
                 document.onmousemove = function(event) {
                     moveImage(event, draggableImage);
